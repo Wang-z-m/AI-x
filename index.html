@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<!--
+====================================================================
+  🤖 AI 协作说明 / AI Collaboration Note
+====================================================================
+  本文件由 Claude (Anthropic) 在 Cursor IDE 中协作生成。
+  This file was co-authored with Claude (Anthropic) inside Cursor.
+
+  📌 用途 / Purpose:
+     一个"温暖手绘风"的个人简历单页网站。
+     A single-page personal portfolio with a warm, hand-drawn aesthetic.
+
+  🎨 设计理念 / Design Philosophy:
+     - 像一封被精心折好的信，而不是一份 PDF 简历
+     - 用"有意的不完美"传递真诚（微倾斜、波浪线、马克笔高亮）
+     - 颜色：晴天午后的旧书店（米黄 + 暖橙 + 鼠尾草绿 + 焙茶棕）
+
+  🛠 技术栈 / Stack:
+     纯 HTML5 + CSS3 + 原生 JavaScript（无任何框架 / 构建工具）
+     Pure HTML5 + CSS3 + Vanilla JS (no framework, no build tool)
+
+  🚀 部署 / Deploy:
+     Vercel · 静态站点零配置部署
+
+  ✍️ 作者 / Author:
+     Cesare · 计算机科学与技术 · 大四
+     "慢一点，但要做得真诚"
+
+  📅 生成时间 / Generated: 2026-05
+====================================================================
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cesare 的个人简历网站 · 一个相信「真诚比技术更动人」的 AI 学生">
+    <meta name="author" content="Cesare">
+    <meta name="theme-color" content="#FFF8F0">
+
+    <!-- Open Graph 社交分享卡片 -->
+    <meta property="og:title" content="Cesare · 把想法慢慢敲成晴天的计算机学生 ☀️">
+    <meta property="og:description" content="一个相信「真诚比技术更动人」的 AI 追光者">
+    <meta property="og:type" content="website">
+
+    <title>Cesare · 把想法慢慢敲成晴天 ☀️</title>
+
+    <!-- Favicon (用 emoji 当 favicon，零成本最温暖) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+
+    <!-- Google Fonts: Caveat (英手写) + Ma Shan Zheng (中毛笔) + Nunito (英正文) + Noto Sans SC (中正文) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- 项目样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="paper-bg">
+
+    <!-- =================================================================
+         🧭 顶部导航栏（固定 · Logo + 5 锚点 + 主题切换）
+    ================================================================== -->
+    <header class="site-header" id="site-header">
+        <nav class="nav-container" aria-label="主导航">
+            <!-- Logo -->
+            <a href="#hero" class="nav-logo" aria-label="返回顶部">
+                <span class="nav-logo-icon">☀️</span>
+                <span class="nav-logo-text">Cesare</span>
+            </a>
+
+            <!-- 桌面端锚点链接 -->
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#hero" role="menuitem" class="nav-link">首页</a></li>
+                <li role="none"><a href="#about" role="menuitem" class="nav-link">关于我</a></li>
+                <li role="none"><a href="#skills" role="menuitem" class="nav-link">小技能</a></li>
+                <li role="none"><a href="#projects" role="menuitem" class="nav-link">作品集</a></li>
+                <li role="none"><a href="#contact" role="menuitem" class="nav-link">联系</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- 主题切换按钮（亮 / 暗） -->
+                <button
+                    type="button"
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    aria-label="切换亮 / 暗主题"
+                    title="切换主题"
+                >
+                    <span class="theme-toggle-icon" aria-hidden="true">🌞</span>
+                </button>
+
+                <!-- 移动端汉堡菜单按钮 -->
+                <button
+                    type="button"
+                    id="menu-toggle"
+                    class="menu-toggle"
+                    aria-label="打开菜单"
+                    aria-expanded="false"
+                    aria-controls="nav-links-mobile"
+                >
+                    <span class="menu-toggle-bar"></span>
+                    <span class="menu-toggle-bar"></span>
+                    <span class="menu-toggle-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 移动端抽屉菜单（默认隐藏） -->
+    <aside id="nav-links-mobile" class="nav-mobile" aria-hidden="true">
+        <ul>
+            <li><a href="#hero" class="nav-link-mobile">🏠 首页</a></li>
+            <li><a href="#about" class="nav-link-mobile">🍵 关于我</a></li>
+            <li><a href="#skills" class="nav-link-mobile">🛠️ 小技能</a></li>
+            <li><a href="#projects" class="nav-link-mobile">📚 作品集</a></li>
+            <li><a href="#contact" class="nav-link-mobile">✉️ 联系</a></li>
+        </ul>
+    </aside>
+
+
+    <main id="main-content">
+
+        <!-- =================================================================
+             🌞 板块 1 · Hero 首屏
+        ================================================================== -->
+        <section id="hero" class="section section-hero" aria-labelledby="hero-title">
+            <!-- 装饰性手绘元素（背景） -->
+            <span class="doodle doodle-star doodle-star-1" aria-hidden="true">✨</span>
+            <span class="doodle doodle-star doodle-star-2" aria-hidden="true">⭐</span>
+            <span class="doodle doodle-leaf" aria-hidden="true">🌿</span>
+            <span class="doodle doodle-cloud" aria-hidden="true">☁️</span>
+
+            <div class="hero-container">
+                <!-- 左侧：文案 -->
+                <div class="hero-text">
+                    <p class="hero-greeting">Hi, I'm Cesare ✏️</p>
+
+                    <h1 id="hero-title" class="hero-title">
+                        把想法慢慢敲成
+                        <span class="doodle-underline">晴天</span>
+                        的<br>
+                        <span class="highlight-marker">计算机学生</span>
+                        <span aria-hidden="true">☀️</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        一个相信「真诚比技术更动人」的<br>
+                        AI 追光者 · 慢节奏生活的实践者
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>看看我的作品</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            <span>↓ 慢慢往下看</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右侧：头像 -->
+                <div class="hero-avatar-wrap">
+                    <!-- 占位头像：400x400, 暖阳黄底, 焙茶棕字 -->
+                    <img
+                        src="https://placehold.co/400x400/F4D35E/5D4037?text=My+Avatar"
+                        alt="Cesare 的卡通头像 · 一个温暖微笑的计算机学生"
+                        class="hero-avatar organic-blob tossed-right"
+                        width="400"
+                        height="400"
+                        loading="eager"
+                    >
+                    <!-- 头像周围的小装饰 -->
+                    <span class="doodle doodle-heart" aria-hidden="true">💛</span>
+                </div>
+            </div>
+
+            <!-- 板块底部波浪分隔线 -->
+            <svg class="wavy-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20"
+                      stroke="#F4A261" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+        </section>
+
+
+        <!-- =================================================================
+             🍵 板块 2 · About 关于我
+        ================================================================== -->
+        <section id="about" class="section section-about" aria-labelledby="about-title">
+            <header class="section-header">
+                <h2 id="about-title" class="section-title">
+                    <span aria-hidden="true">🍵</span>
+                    <span class="doodle-underline">关于我</span>
+                </h2>
+                <p class="section-subtitle">— 一些关于"我是谁"的小碎片 —</p>
+            </header>
+
+            <article class="about-container">
+                <!-- 左：生活照 -->
+                <figure class="about-photo-wrap">
+                    <!-- 占位生活照：320x400, 鼠尾草绿底 -->
+                    <img
+                        src="https://placehold.co/320x400/87A96B/FFF8F0?text=Life+Photo"
+                        alt="Cesare 的一张生活照 · 在晴天里骑车的瞬间"
+                        class="about-photo tossed-left"
+                        width="320"
+                        height="400"
+                        loading="lazy"
+                    >
+                    <figcaption class="about-photo-caption">
+                        ✏️ 一个普通的、晴天的下午
+                    </figcaption>
+                </figure>
+
+                <!-- 右：自述 -->
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        嗨～我是一名
+                        <span class="highlight-marker">计算机科学与技术</span>
+                        专业的大四学生 <span aria-hidden="true">🎓</span>。
+                    </p>
+
+                    <p class="about-paragraph">
+                        比起追赶最新的技术潮流，我更喜欢
+                        <strong>慢慢来</strong>——像晴天午后骑车穿过街道那样，把每一个小想法认真敲成可以运行的样子
+                        <span aria-hidden="true">🚴</span>。
+                    </p>
+
+                    <p class="about-paragraph">
+                        最近在学
+                        <strong>AI 相关的技术</strong>，也一直在读
+                        <strong>心理学</strong>：前者让我相信"想法可以落地"，后者让我记得"代码背后始终是人"。
+                    </p>
+
+                    <blockquote class="about-quote dashed-box">
+                        "慢一点，但要做得真诚。"<br>
+                        <cite>—— 我送给自己的一句话</cite>
+                    </blockquote>
+
+                    <!-- 个人标签 -->
+                    <ul class="about-tags" aria-label="个人兴趣标签">
+                        <li class="tag tag-sage">🚴 骑行</li>
+                        <li class="tag tag-orange">📚 心理学</li>
+                        <li class="tag tag-sun">🤖 AI</li>
+                        <li class="tag tag-clay">☕ 慢节奏</li>
+                        <li class="tag tag-sage">☀️ 晴天爱好者</li>
+                    </ul>
+                </div>
+            </article>
+
+            <svg class="wavy-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20"
+                      stroke="#87A96B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+        </section>
+
+
+        <!-- =================================================================
+             🛠️ 板块 3 · Skills 小技能
+        ================================================================== -->
+        <section id="skills" class="section section-skills" aria-labelledby="skills-title">
+            <header class="section-header">
+                <h2 id="skills-title" class="section-title">
+                    <span aria-hidden="true">🛠️</span>
+                    <span class="doodle-underline">我会的小技能</span>
+                </h2>
+                <p class="section-subtitle">— 不是技术堆砌，是一个个"我用它做过什么"的小故事 —</p>
+            </header>
+
+            <ul class="skills-grid" role="list">
+                <!-- 技能 1: Python -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-left">
+                        <div class="skill-icon" aria-hidden="true">🐍</div>
+                        <h3 class="skill-name">Python</h3>
+                        <p class="skill-story">
+                            我最有感情的一门语言。它陪我跑通了人生第一个程序，也陪我搭起了第一个 AI 小项目。
+                        </p>
+                    </article>
+                </li>
+
+                <!-- 技能 2: AI / 生成式 AI -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-right">
+                        <div class="skill-icon" aria-hidden="true">🤖</div>
+                        <h3 class="skill-name">AI / 生成式 AI</h3>
+                        <p class="skill-story">
+                            正在认真学习的方向。相信它能把"脑子里的想法"翻译成"屏幕里的现实"。
+                        </p>
+                    </article>
+                </li>
+
+                <!-- 技能 3: 前端三件套 -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-left">
+                        <div class="skill-icon" aria-hidden="true">🌐</div>
+                        <h3 class="skill-name">HTML / CSS / JS</h3>
+                        <p class="skill-story">
+                            用它一笔一笔，搭起了你正在看的这个网站 ☀️
+                        </p>
+                    </article>
+                </li>
+
+                <!-- 技能 4: Git -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-right">
+                        <div class="skill-icon" aria-hidden="true">🧰</div>
+                        <h3 class="skill-name">Git &amp; GitHub</h3>
+                        <p class="skill-story">
+                            我习惯把每一次小进步都 commit 一下，像写日记一样。
+                        </p>
+                    </article>
+                </li>
+
+                <!-- 技能 5: C / C++ -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-left">
+                        <div class="skill-icon" aria-hidden="true">💾</div>
+                        <h3 class="skill-name">C / C++ / 数据结构</h3>
+                        <p class="skill-story">
+                            大学课程里"打地基"的伙伴，让我学会和"指针"做朋友。
+                        </p>
+                    </article>
+                </li>
+
+                <!-- 技能 6: 持续学习力 -->
+                <li>
+                    <article class="skill-card hand-drawn-card tossed-right">
+                        <div class="skill-icon" aria-hidden="true">📚</div>
+                        <h3 class="skill-name">持续学习力</h3>
+                        <p class="skill-story">
+                            我相信比任何具体技术更重要的，是"愿意一直慢慢学"这件事本身。
+                        </p>
+                    </article>
+                </li>
+            </ul>
+
+            <svg class="wavy-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20"
+                      stroke="#F4A261" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+        </section>
+
+
+        <!-- =================================================================
+             📚 板块 4 · Projects 作品集
+        ================================================================== -->
+        <section id="projects" class="section section-projects" aria-labelledby="projects-title">
+            <header class="section-header">
+                <h2 id="projects-title" class="section-title">
+                    <span aria-hidden="true">📚</span>
+                    <span class="doodle-underline">项目作品集</span>
+                </h2>
+                <p class="section-subtitle">— 一些"我亲手做过"的小事 —</p>
+            </header>
+
+            <div class="projects-list">
+
+                <!-- 项目 1: 主推 · 通栏大卡片 -->
+                <article class="project-card project-card-feature hand-drawn-card">
+                    <div class="project-feature-grid">
+                        <!-- 截图 -->
+                        <figure class="project-image-wrap">
+                            <!-- 占位项目截图：600x400, 米白底 -->
+                            <img
+                                src="https://placehold.co/600x400/FFF8F0/5D4037?text=This+Website"
+                                alt="项目一截图：你正在看的这个个人网站的首页"
+                                class="project-image"
+                                width="600"
+                                height="400"
+                                loading="lazy"
+                            >
+                        </figure>
+
+                        <!-- 信息 -->
+                        <div class="project-info">
+                            <p class="project-tag">🌟 主推项目</p>
+                            <h3 class="project-name">这个网站本身</h3>
+                            <p class="project-tagline">
+                                一封写给世界的、慢慢手写的自我介绍信 ✉️
+                            </p>
+
+                            <dl class="project-meta">
+                                <dt>🧑‍🎨 角色</dt>
+                                <dd>独立完成 · 从想法、设计到代码</dd>
+
+                                <dt>🛠️ 技术栈</dt>
+                                <dd>HTML5 / CSS3 / 原生 JavaScript</dd>
+
+                                <dt>📖 背景</dt>
+                                <dd>
+                                    AIGC 课程项目 · 用前沿生成式 AI 技术打通音频、视频、知识库、智能体、个人 IP 等 7 大场景，把"技术"变成"生产力"。
+                                </dd>
+
+                                <dt>💡 收获</dt>
+                                <dd>
+                                    我第一次真切地感受到：<strong>AI 不是冷冰冰的工具，而是可以替"温度"打草稿的朋友</strong>。
+                                </dd>
+                            </dl>
+
+                            <a href="#" class="btn btn-primary project-cta">
+                                <span>查看源码</span>
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目 2 + 3: 双列小卡片 -->
+                <div class="projects-grid-small">
+
+                    <!-- 项目 2 占位 -->
+                    <article class="project-card hand-drawn-card tossed-left">
+                        <figure class="project-image-wrap">
+                            <!-- 占位：400x240 -->
+                            <img
+                                src="https://placehold.co/400x240/FBEFD9/5D4037?text=Project+2+Coming+Soon"
+                                alt="项目二预览图占位"
+                                class="project-image"
+                                width="400"
+                                height="240"
+                                loading="lazy"
+                            >
+                        </figure>
+                        <div class="project-info">
+                            <p class="project-tag">🌱 待补充</p>
+                            <h3 class="project-name">项目二 · 期待中</h3>
+                            <p class="project-tagline">
+                                这里会放一个我做过的课程作业或 AI 小 Demo。
+                            </p>
+                            <p class="project-placeholder-note">
+                                ✏️ 占位中 —— 等我把第二个故事讲清楚就来填上 ☀️
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 项目 3 占位 -->
+                    <article class="project-card hand-drawn-card tossed-right">
+                        <figure class="project-image-wrap">
+                            <!-- 占位：400x240 -->
+                            <img
+                                src="https://placehold.co/400x240/FBEFD9/5D4037?text=Project+3+Coming+Soon"
+                                alt="项目三预览图占位"
+                                class="project-image"
+                                width="400"
+                                height="240"
+                                loading="lazy"
+                            >
+                        </figure>
+                        <div class="project-info">
+                            <p class="project-tag">🌱 待补充</p>
+                            <h3 class="project-name">项目三 · 期待中</h3>
+                            <p class="project-tagline">
+                                这里也许会放一个能体现"非技术面"的小项目，比如骑行地图。
+                            </p>
+                            <p class="project-placeholder-note">
+                                🚴 占位中 —— 想做个"我的骑行地图"小工具，正在路上 ～
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <svg class="wavy-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,20 Q150,0 300,20 T600,20 T900,20 T1200,20"
+                      stroke="#E76F51" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+        </section>
+
+
+        <!-- =================================================================
+             ✉️ 板块 5 · Contact 结语
+        ================================================================== -->
+        <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+            <div class="contact-container">
+                <span class="contact-decoration" aria-hidden="true">☀️</span>
+
+                <h2 id="contact-title" class="contact-title">
+                    谢谢你慢慢读到这里
+                </h2>
+
+                <p class="contact-message">
+                    愿你也拥有，<br>
+                    把想法慢慢落地的<span class="highlight-marker">好天气</span>
+                </p>
+
+                <!-- 联系方式（按钮预留，可填可空） -->
+                <div class="contact-actions" aria-label="联系方式">
+                    <a href="mailto:hello@example.com" class="btn btn-primary contact-btn">
+                        <span aria-hidden="true">✉️</span>
+                        <span>给我写信</span>
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary contact-btn">
+                        <span aria-hidden="true">🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =================================================================
+         🌱 页脚
+    ================================================================== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <p class="footer-text">
+                © 2026 · 用心一笔一笔搭出来 <span aria-hidden="true">🌱</span>
+            </p>
+            <p class="footer-text-small">
+                Made with <span aria-hidden="true">☕</span> &amp;
+                <span aria-hidden="true">🤖</span>
+                in a slow, sunny afternoon · Built with HTML / CSS / JS
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- =================================================================
+         🎁 AI 彩蛋 · 预留弹窗结构（功能由 main.js 后续实现）
+         触发方式建议：在页面停留 30 秒后自动弹出 / 点击 Logo 三次触发
+    ================================================================== -->
+    <div
+        id="ai-greeting-modal"
+        class="ai-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ai-modal-title"
+        aria-hidden="true"
+        hidden
+    >
+        <div class="ai-modal-backdrop" data-modal-close></div>
+        <article class="ai-modal-card hand-drawn-card">
+            <button
+                type="button"
+                class="ai-modal-close"
+                aria-label="关闭弹窗"
+                data-modal-close
+            >
+                <span aria-hidden="true">×</span>
+            </button>
+
+            <div class="ai-modal-icon" aria-hidden="true">🤖</div>
+
+            <h3 id="ai-modal-title" class="ai-modal-title">
+                Hi～我是这个网站的 AI 小助手
+            </h3>
+
+            <p class="ai-modal-body">
+                <!-- 占位文案 · 实际内容由 main.js 注入（可接入 LLM API 实时生成） -->
+                我注意到你已经在这里慢慢逛了一会儿啦 ☕<br>
+                想问问：你今天来这里，是想<strong>找人合作</strong>、<strong>聊聊技术</strong>，还是<strong>只是路过看看</strong>？
+            </p>
+
+            <div class="ai-modal-actions">
+                <button type="button" class="btn btn-secondary" data-ai-intent="cooperate">
+                    💼 想找你合作
+                </button>
+                <button type="button" class="btn btn-secondary" data-ai-intent="chat">
+                    💬 想聊聊技术
+                </button>
+                <button type="button" class="btn btn-secondary" data-modal-close>
+                    🌿 只是路过
+                </button>
+            </div>
+
+            <p class="ai-modal-footer-note">
+                ✨ 这是网站作者留给你的一个小彩蛋
+            </p>
+        </article>
+    </div>
+
+
+    <!-- =================================================================
+         📜 项目脚本（最后引入 · 不阻塞页面渲染）
+    ================================================================== -->
+    <script src="main.js" defer></script>
+</body>
+</html>
